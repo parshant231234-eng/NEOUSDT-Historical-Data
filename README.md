@@ -1,0 +1,39 @@
+# NEOUSDT 1-Minute Historical Kline Dataset
+
+An institutional-grade, open-source archive of cleaned, standardized, and validated **1-minute intraday historical kline data** for **NEOUSDT** (Binance Spot).
+
+---
+
+## 📊 Dataset Specifications
+- **Symbol:** `NEOUSDT`
+- **Market:** Binance Spot
+- **Timeframe:** 1 Minute (`1m`)
+- **Total Months:** `108` months
+- **Total Candles:** `4,668,755` 1-minute candles
+- **Historical Range:** `2017-11-20 03:42:00` to `2026-10-11 23:59:00` (UTC)
+- **Schema:** `timestamp, datetime_utc, open, high, low, close, volume, quote_volume, trade_count, taker_buy_volume, taker_buy_quote_volume`
+
+---
+
+## 🏛️ Directory Hierarchy
+```text
+NEOUSDT-Historical-Data/
+├── README.md
+└── 1m/
+    └── <YYYY>/
+        └── <MM>/
+            └── NEOUSDT_1m_<YYYY-MM>.csv
+```
+
+---
+
+## ⚡ 1-Line Pandas Stream Loader
+Load any month directly from GitHub's raw CDN without cloning the repository:
+
+```python
+import pandas as pd
+
+url = "https://raw.githubusercontent.com/parshant231234-eng/NEOUSDT-Historical-Data/main/1m/2026/10/NEOUSDT_1m_2026-10.csv"
+df = pd.read_csv(url)
+print(df.head())
+```
